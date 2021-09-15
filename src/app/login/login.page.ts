@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +12,11 @@ export class LoginPage implements OnInit {
  
   formularioIngreso: FormGroup;
   
+ 
+
   constructor(private router: Router, public fb: FormBuilder, public alertController: AlertController) {
     this.formularioIngreso = this.fb.group({
+      
       'usuario': new FormControl("", Validators.required),
       'password': new FormControl("", Validators.required)
 
@@ -25,6 +27,7 @@ export class LoginPage implements OnInit {
   
   
   async ingresar(){
+    
     var f= this.formularioIngreso.value;
     if(this.formularioIngreso.invalid){
       const alert = await this.alertController.create({
@@ -35,8 +38,14 @@ export class LoginPage implements OnInit {
       await alert.present();
       return; 
     }
+    else{
+      let navigationExtras: NavigationExtras = {
+        state: {
+          user: this.formularioIngreso.value 
+        }
+      };
+      this.router.navigate(['/home'],navigationExtras);}
      
-    this.router.navigate(['/home']); 
   }
 
   recuperar(){

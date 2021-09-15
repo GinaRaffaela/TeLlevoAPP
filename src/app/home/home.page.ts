@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
-
-
-
 
 @Component({
   selector: 'app-home',
@@ -12,7 +8,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
   data: any; 
-  constructor(private activeroute: ActivatedRoute, private router: Router, private menuCtrl: MenuController) {
+  constructor(private activeroute: ActivatedRoute, private router: Router) {
     
  
     this.activeroute.queryParams.subscribe(params => { 
@@ -30,9 +26,5 @@ export class HomePage {
 
   pasajero(){
     this.router.navigate(['/pasajero']);
-  }
-
-  menu(){
-    this.menuCtrl.toggle();
   }
 }

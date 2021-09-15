@@ -16,8 +16,7 @@ export class ConductorPage implements OnInit {
 
   async valorAlerta() {
     const alert = await this.alertCtrl.create({
-      header: 'Calcular viaje',
-      subHeader: 'Valor del viaje es:',
+      header: 'Valor del viaje es:',
       message: '$2.500',
       buttons: ['OK']
     });
