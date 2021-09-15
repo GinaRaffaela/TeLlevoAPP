@@ -1,0 +1,36 @@
+<ion-header no-border>
+  
+  
+</ion-header>
+  
+<ion-content>
+  <div class="logo">
+    <img src='/assets/img/logo2.png'>
+  </div>
+
+    <form [formGroup]="formularioIngreso">
+      <ion-item lines="full">
+        <ion-label position="floating">Usuario:</ion-label>
+        
+        <ion-input type="text" formControlName="usuario"></ion-input>
+
+      </ion-item>
+
+      <ion-item lines="full">
+        
+        <ion-label position="floating">Clave:</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+        
+      </ion-item>
+    </form>
+    
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="full" (click)="ingresar()">Iniciar Sesión</ion-button>
+          <ion-button fill='clear' (click)="recuperar()">Recuperar clave</ion-button>
+        </ion-col>
+      </ion-row>
+
+  
+</ion-content>
